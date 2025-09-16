@@ -1,4 +1,4 @@
-from ..utils.utils import ingresar_n, ingresar_str
+from utils.utils import ingresar_n, ingresar_str
 
 
 def ingresar_nota(n_nota: int, n_estudiante: int):
