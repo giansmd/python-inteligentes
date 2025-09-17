@@ -28,5 +28,28 @@ def ingresar_estudiantes():
 lista_estudiantes = ingresar_estudiantes()
 
 # debug
+# for estudiante in lista_estudiantes:
+#     print(estudiante)
+
+lista_estudiantes.sort()
+
+print("LISTA ORDENADA DE ESTUDIANTES:")
 for estudiante in lista_estudiantes:
     print(estudiante)
+
+
+nombre_a_buscar = ingresar_str("el nombre que se va a buscar")
+
+
+def buscar_estudiante(nombre_a_buscar: str):
+    for estudiante in lista_estudiantes:
+        nombre_estudiante = estudiante[0]
+        if nombre_estudiante == nombre_a_buscar:
+            print(f"¡Estudiante encontrado!: {nombre_estudiante}")
+            return estudiante
+    return None
+
+
+estudiante_encontrado = buscar_estudiante(nombre_a_buscar)
+
+print(f"Nota: {estudiante_encontrado[1]}")
