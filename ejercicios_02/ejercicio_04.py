@@ -15,7 +15,7 @@ def registrar_dict_alumnos():
     for i in range(cantidad_alumnos):
         # PASO. registrar nombre
         while True:
-            nombre_estudiante = ingresar_nombre_estudiante(i+1)
+            nombre_estudiante = ingresar_nombre_estudiante(i + 1)
             if dict_alumnos.get(nombre_estudiante) is None:
                 break
             print("Error: el nombre ya existe en el diccionario. Esbriba otro.")
@@ -23,15 +23,17 @@ def registrar_dict_alumnos():
         # PASO. si el nombre no existe, registrar la lista de notas
         lista_notas_estudiante = []
         while True:
-            nota_estudiante = ingresar_nota_estudiante(i+1)
-            if nota_estudiante >= 0 & nota_estudiante <= 20:
+            nota_estudiante = ingresar_nota_estudiante(i + 1)
+            if nota_estudiante >= 0 and nota_estudiante <= 20:
                 lista_notas_estudiante.append(nota_estudiante)
+            elif nota_estudiante > 20:
+                print("Nota no válida. No se registró")
             elif len(lista_notas_estudiante) == 0:
-                print("Escbriba al menos una nota.") 
+                print("Escbriba al menos una nota.")
             else:
                 break
         dict_alumnos[nombre_estudiante] = lista_notas_estudiante
-        
+
     return dict_alumnos
 
 

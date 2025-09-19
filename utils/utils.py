@@ -23,5 +23,8 @@ def ingresar_nn(p_label: str):
 
 
 def ingresar_str(p_label: str):
-    string = input(f"Ingrese {p_label}: ")
+    while True:
+        string = input(f"Ingrese {p_label}: ")
+        if len(string) != 0:
+            break
     return string

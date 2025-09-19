@@ -52,4 +52,7 @@ def buscar_estudiante(nombre_a_buscar: str):
 
 estudiante_encontrado = buscar_estudiante(nombre_a_buscar)
 
-print(f"Nota: {estudiante_encontrado[1]}")
+if estudiante_encontrado is not None:
+    print(f"Nota: {estudiante_encontrado[1]}")
+else:
+    print("Estudiante no encontrado")
