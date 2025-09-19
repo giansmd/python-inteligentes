@@ -1,4 +1,4 @@
-from utils.utils import ingresar_ne, ingresar_nn, ingresar_str
+from utils.utils import ingresar_ne, ingresar_str
 from typing import Dict
 
 agenda = {
