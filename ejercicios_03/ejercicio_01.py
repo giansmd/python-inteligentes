@@ -1,5 +1,6 @@
 import numpy as np
 from utils.utils import ingresar_str, ingresar_nn, ingresar_ne
+import matplotlib.pyplot as plt
 
 
 class Estudiante:
@@ -21,6 +22,25 @@ class Estudiante:
         if len(self.lista_notas) == 0:
             raise ValueError("La lista de notas está vacía.")
         return np.min(self.lista_notas)
+
+    def mostrarNotas(self):
+        if len(self.lista_notas) == 0:
+            raise ValueError("La lista de notas está vacía.")
+        try:
+            plt.hist(
+                self.lista_notas,
+                bins=np.arange(0, 22) - 0.5,
+                edgecolor="black",
+                alpha=0.7,
+            )
+            plt.xticks(range(0, 21))
+            plt.title(f"Histograma de notas de {self.nombre}")
+            plt.xlabel("Notas")
+            plt.ylabel("Frecuencia")
+            plt.grid(axis="y", alpha=0.3)
+            plt.show()
+        except Exception as e:
+            print(f"Error al mostrar el histograma: {e}")
 
 
 if __name__ == "__main__":
@@ -46,5 +66,6 @@ if __name__ == "__main__":
         print(f"Promedio de notas: {estudiante.calcularPromedio()}")
         print(f"Nota máxima: {estudiante.detectarNotaMaxima()}")
         print(f"Nota mínima: {estudiante.detectarNotaMinima()}")
+        estudiante.mostrarNotas()
     except ValueError as e:
         print(e)
